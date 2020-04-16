@@ -1,0 +1,24 @@
+<h1>Recipes for <%= @search %></h1>
+
+<table>
+    <tr>
+        <th>Photo</th>
+        <th>Title</th>
+        <th>Ingredients</th>
+    </tr>
+    <% @recipes.each do |recipe| %>
+        <tr class=<%= cycle("even", "odd") %>>
+            <td>
+                <%= link_to recipe["href"] do %>
+                    <%= image_tag(recipe["thumbnail"]) %>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to recipe["href"] do %>
+                    <%= sanitize recipe["title"] %>
+                <% end %>
+            </td>
+            <td><%= recipe["ingredients"] %></td>
+        </tr>
+    <% end %>
+</table>
